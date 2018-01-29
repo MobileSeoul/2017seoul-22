@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ga.twpooi.detectseoul.activity.SearchListActivity"
+    android:background="@color/background_color"
+    >
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/rv"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/custom_actionbar_size"
+        >
+    </android.support.v7.widget.RecyclerView>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:contentInsetStart="0dp"
+        android:layout_height="@dimen/custom_actionbar_size"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="@dimen/custom_actionbar_title_size"
+                android:layout_centerInParent="true"
+                />
+
+        </RelativeLayout>
+
+
+
+    </android.support.v7.widget.Toolbar>
+
+</RelativeLayout>

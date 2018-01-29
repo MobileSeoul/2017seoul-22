@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:minHeight="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="title"
+            android:textSize="14sp"
+            android:textColor="@color/light_gray2"
+            android:gravity="right"
+            android:paddingRight="5dp"
+            />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="content"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:autoLink="email"
+                />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

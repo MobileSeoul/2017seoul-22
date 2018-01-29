@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context="ga.twpooi.detectseoul.activity.CameraActivity">
+
+    <view
+        android:id="@+id/cameraView"
+        class="com.flurgle.camerakit.CameraView"
+        id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <Button
+        android:id="@+id/btnDetect"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="Detect"
+        android:textAllCaps="false"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        />
+
+</RelativeLayout>

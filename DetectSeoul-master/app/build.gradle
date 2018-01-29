@@ -1,0 +1,67 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+    defaultConfig {
+        def versionPropsFile = file('version.properties') // version.properties 파일에서 버전 정보를 관리합니다
+        if (versionPropsFile.canRead()) {
+            def Properties versionProps = new Properties()
+            versionProps.load(new FileInputStream(versionPropsFile))
+            def code = versionProps['VERSION_CODE'].toInteger() + 1 // Gradle이 실행될 때 버전 코드 증가
+            versionProps['VERSION_CODE'] = code.toString()
+            versionProps.store(versionPropsFile.newWriter(), null)
+            defaultConfig {
+                applicationId "ga.twpooi.detectseoul"
+                minSdkVersion 16
+                targetSdkVersion 26
+                versionCode code
+                versionName "1.0.0"
+                testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+                versionName "1.0.0"// + code
+                multiDexEnabled true //important
+            }
+        } else {
+            throw new GradleException("Could not read version.properties!")
+            // version.properties를 읽어올 수 없을 때
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:26.0.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:recyclerview-v7:26.0.1'
+    compile 'com.android.support:cardview-v7:26.0.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.commit451:PhotoView:1.2.4'
+    compile 'com.isseiaoki:simplecropview:1.0.13'
+    compile 'com.yongchun:com.yongchun.imageselector:1.1.0'
+    compile 'com.karumi:dexter:4.1.0'
+    compile 'com.flurgle:camerakit:0.9.17'
+    compile 'org.tensorflow:tensorflow-android:1.3.0'
+    compile 'com.afollestad.material-dialogs:core:0.9.4.7'
+    compile 'com.github.ksoichiro:android-observablescrollview:1.6.0'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.getbase:floatingactionbutton:1.10.1'
+    compile 'com.github.ppamorim:dragger:1.2'
+    compile 'com.flaviofaria:kenburnsview:1.0.7'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'jp.wasabeef:picasso-transformations:2.1.0'
+    compile 'com.matthew-tamlin:sliding-intro-screen:3.1.0'
+    compile 'com.github.zzz40500:AndroidSweetSheet:1.1.0'
+    compile 'com.diogobernardino:williamchart:2.5.0'
+    compile 'com.github.chrisbanes:PhotoView:2.0.0'
+    testCompile 'junit:junit:4.12'
+    compile files('src/main/jniLibs/libDaumMapAndroid.jar')
+}
